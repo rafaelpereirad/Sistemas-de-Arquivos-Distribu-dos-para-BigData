@@ -281,7 +281,7 @@ Assim, é possível verificar o Sistema de arquivos distribuídos reconhecendo o
 
 Desse modo, ao inserir dados no hdfs é possível armazenar de forma distribuída os dados nesse sistema de arquivos distribuídos sem se preocupar em qual dos nós está sendo armazenado os dados
 
-O Master node (ou Data Node) faz o gerenciamento e replicação dos dados nos Worker nodes de forma distribuída.
+O Master node (ou Name Node) faz o gerenciamento e replicação dos dados nos Worker nodes de forma distribuída.
 
 Rodar no nó mestre para carregar e consultar arquivos no HDFS:
 
@@ -381,9 +381,25 @@ Para acessar hive que interage com hdfs, rodar no mestre:
  beeline -u "jdbc:hive2://master:10000/default" -n hive -p hive 
 ```
 
-Exemplo de consultas buscando dados armazenados anteriormente no sistema de arquivos distribuído:
+Exemplo de consultas buscando dados armazenados anteriormente no sistema de arquivos distribuído formado pelos 3 Worker nodes:
+```
+ SELECT * FROM teste_hive;
+
+ SELECT SUM(registros_validados) FROM teste_hive;
+```
 
 <img width="564" alt="image" src="https://github.com/user-attachments/assets/2c72144c-8d68-4b7a-b519-0c14d65251e4">
+
+
+Verificação da localização dos dados no HDFS usados nas consultas do Hive:
+
+```
+ hdfs fsck /user/hdfs/teste -files -blocks -locations
+```
+
+<img width="572" alt="image" src="https://github.com/user-attachments/assets/aaef1143-282a-4698-b329-0ea644b6ff98">
+
+Assim é possível verificar que há a replicação do bloco de dados nos 3 Worker nodes (Data Nodes) como é possível ver pelos IPs, demonstrando que a aplicação é distribuída em relação ao sistema de arquivos.
 
 
 
