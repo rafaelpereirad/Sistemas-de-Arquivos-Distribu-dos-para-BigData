@@ -1,5 +1,8 @@
 # Sistema de Arquivos Distribuídos para Big Data
 
+Pedro Vitor Melo Bitencourt (20213001540)
+Rafael Pereira Duarte (20213005146)
+
 ## Criação de instâncias na Oracle
 
 Criar 4 instâncias: 1 Master e 3 Worker nodes
