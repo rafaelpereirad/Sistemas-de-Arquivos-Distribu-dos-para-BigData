@@ -1,6 +1,9 @@
 # Sistema de Arquivos Distribuídos para Big Data
 
+Grupo:
+
 Pedro Vitor Melo Bitencourt (20213001540)
+
 Rafael Pereira Duarte (20213005146)
 
 ## Criação de instâncias na Oracle
